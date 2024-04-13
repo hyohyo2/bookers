@@ -21,15 +21,38 @@
   box-sizing: border-box;
 }
 
-
-.book_show{
-  margin:33px;
+.title_index{
+  margin:17px 0;
   
 }
 
+.table_head{
+  padding-bottom:5px;
+}
 
+.table_item{
+  padding:0 5px 7px 5px;
+}
 
-.title{
+.title_new{
   margin:17px 0;
-  
+}
+
+.field{
+  margin-bottom: 10px;
+}
+
+.actions{
+  margin-bottom:10px;
+}
+
+
+.book_show_item{
+  font-size:13px;
+  line-height:18px;
+  margin:33px;
+}
+
+.book_edit{
+  margin:33px 0;
 }
