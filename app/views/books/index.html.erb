@@ -1,3 +1,7 @@
+<div class="notice">
+ <%= flash[:notice] %>
+</div>
+
 <h1 class="title_index">Books</h1>
 
 <table>
@@ -9,9 +13,10 @@
  </tr>
  </thead>
 
-<tbody>
- <% @books.each do |book|%>
- <tr>
+ <tbody>
+  <% @books.each do |book|%>
+ 
+  <tr>
    <td class="table_item"><%= book.title %></td>
    <td class="table_item"><%= book.body %></td>
 
@@ -22,35 +27,45 @@
 
    <td class="table_item"><%= link_to "Destroy",book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
 
- </tr>
+  </tr>
+
  <% end %>
  </tbody>
-
 </table>
+
 
 <h2 class="title_new">New book</h2>
 
   <% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this book from being saved:
- <ul>
-  <% @book.errors.full_messages.each do |message| %>
- <li><%= message %></li>
-   <% end %>
- </ul>
-<% end %>
+   <div class="error_explanation">
+    <div class="error_title">
+      <%= @book.errors.count %> errors prohibited this book from being saved:
+    </div>
+    
+    <div class="error_massage">
+     <ul>
+      <% @book.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+     </ul>
+    </div>
+   </div>
+  <% end %>
 
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
-<div class="field">
- <p>Title</p>
- <%= f.text_field :title %>
- </div>
- <div class="field">
- <p>Body</p>
- <%= f.text_area :body %>
- </div>
+  <div class="field">
+     <p>Title</p>
+       <%= f.text_field :title %>
+   </div>
+   
+  <div class="field">
+     <p>Body</p>
+       <%= f.text_area :body %>
+  </div>
  
- <div class="actions">
- <%= f.submit 'Check Book' %>
- </div>
-<% end %>
+  <div class="actions">
+     <%= f.submit 'Create Book' %>
+  
+     <% end %>
+  </div>
 
